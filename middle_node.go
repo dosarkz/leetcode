@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func MiddleNode(head *ListNode) *ListNode {
 	node := head
 	var l []int
@@ -10,13 +8,15 @@ func MiddleNode(head *ListNode) *ListNode {
 		node = node.Next
 	}
 
+	if len(l) == 2 {
+		l = l[1:]
+	}
+
 	if len(l)%2 == 0 {
-		l = l[(((len(l) - 1) / 2) + (len(l)/2)/2):]
+		l = l[(((len(l)-1)/2)+(len(l)/2))/2+1:]
 	} else {
 		l = l[(len(l)-1)/2:]
 	}
-
-	fmt.Println(l)
 
 	h := &ListNode{Val: l[0], Next: nil}
 	curr := h
