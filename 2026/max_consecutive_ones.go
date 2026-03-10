@@ -3,10 +3,9 @@ package _026
 func longestOnes(nums []int, k int) int {
 	maxLength := 0
 	currentCount := 0
-	j := k
 
 	for i := 0; i < len(nums); i++ {
-		if j == 0 && nums[i] == 0 {
+		if k == 0 && nums[i] == 0 {
 			if nums[i-currentCount] == 0 {
 				continue
 			}
@@ -16,9 +15,9 @@ func longestOnes(nums []int, k int) int {
 		}
 
 		// flip 0 to 1 if we have flips left
-		if nums[i] == 0 && j > 0 {
+		if nums[i] == 0 && k > 0 {
 			currentCount++
-			j--
+			k--
 		}
 
 		if nums[i] == 1 {
